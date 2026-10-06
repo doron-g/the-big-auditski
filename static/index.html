@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎳 The Big Auditski - ביג ליבובסקי בודק מוכנות אתר למסירה</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dudeDark: '#120e0b',
+                        dudeWood: '#23170f',
+                        dudeAmber: '#f59e0b',
+                        dudeGold: '#fbbf24',
+                        dudeCream: '#fef3c7',
+                        dudeMaroon: '#7f1d1d',
+                        dudeRed: '#ef4444',
+                        dudeTeal: '#14b8a6',
+                        dudeGreen: '#10b981'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/static/style.css?v=3.0">
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-amber-500 selection:text-black">
+
+    <!-- The Iconic Persian Rug Fringe on Top -->
+    <div class="rug-fringe no-print"></div>
+
+    <!-- Top Navigation HUD - The Big Auditski Bowling League -->
+    <header class="border-b border-amber-900/40 bg-[#17100b]/90 backdrop-blur-xl sticky top-0 z-50 no-print shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-2.5 flex items-center justify-between">
+            <div class="flex items-center gap-3.5">
+                <!-- Retro Bowling Ball & Pin Badge -->
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-600 via-amber-700 to-rose-900 p-[1.5px] shadow-lg shadow-amber-900/40">
+                    <div class="w-full h-full bg-[#1e130c] rounded-2xl flex items-center justify-center text-xl">
+                        🎳
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="font-black text-xl tracking-wider text-amber-400 font-lebowski uppercase drop-shadow-md">
+                            THE BIG AUDITSKI
+                        </h1>
+                        <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/40 flex items-center gap-1 font-bold">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            THE DUDE ABIDES // LEAGUE QA
+                        </span>
+                    </div>
+                    <p class="text-xs text-amber-200/70 font-sans">
+                        "That rug really tied the website together, man" &bull; בקרת מוכנות למסירה &bull; ת"י 5568 / WCAG AA
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button onclick="loadSampleDemo()" class="text-xs px-4 py-2.5 rounded-xl bg-[#2a1a10] hover:bg-[#382316] text-amber-200 border border-amber-500/30 flex items-center gap-2 transition hover:border-amber-400 shadow-md">
+                    <span class="text-base">🍸</span>
+                    <span class="font-bold">קח שלוק של White Russian (טען דוגמה)</span>
+                </button>
+                <button onclick="window.print()" id="printBtn" class="hidden text-xs px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 via-orange-600 to-rose-600 hover:opacity-90 text-white font-bold flex items-center gap-2 shadow-lg shadow-amber-900/30 transition">
+                    <i data-lucide="printer" class="w-4 h-4"></i>
+                    <span>💼 המזוודה של וולטר (הדפס דוח / PDF)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-8">
+
+        <!-- Command Console (Search & Config - Styled like a Persian Rug Panel) -->
+        <section class="cockpit-panel persian-rug-border rounded-3xl p-6 sm:p-10 relative overflow-hidden no-print">
+            
+            <div class="max-w-3xl mx-auto text-center space-y-3 mb-8">
+                <div class="inline-flex items-center gap-2 text-xs font-mono text-amber-300 px-3.5 py-1 rounded-full bg-amber-950/60 border border-amber-500/40 shadow-inner">
+                    <span>🎳</span>
+                    <span class="font-bold">LEAGUE RULES // PRE-DELIVERY PROTOCOL</span>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-black text-amber-100 tracking-tight font-lebowski">
+                    האם האתר שלך קושר את החדר, או שגלגלת כדור לתעלה?
+                </h2>
+                <p class="text-amber-200/80 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+                    בדיקת איכות קשוחה לפי חוקי הליגה: נגישות ת"י 5568 (כולל כרזות אירועים ומבצעים), קישורים שבורים (404), תמונות ללא Alt, הצהרת נגישות כחוק ושאריות פיתוח לפני מסירה ללקוח.
+                </p>
+            </div>
+
+            <!-- Mode Selector Switcher -->
+            <div class="flex justify-center mb-6">
+                <div class="inline-flex p-1.5 rounded-2xl bg-black/60 border border-amber-500/30 shadow-inner">
+                    <button id="tabUrlBtn" onclick="switchScanTab('url')" class="px-5 py-2.5 rounded-xl text-xs font-bold transition bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-lg">
+                        <i data-lucide="globe" class="w-3.5 h-3.5 inline ml-1.5"></i>
+                        <span>🎳 גלגל לפי כתובת (URL)</span>
+                    </button>
+                    <button id="tabHtmlBtn" onclick="switchScanTab('html')" class="px-5 py-2.5 rounded-xl text-xs font-bold text-amber-300/70 hover:text-white transition">
+                        <i data-lucide="code" class="w-3.5 h-3.5 inline ml-1.5"></i>
+                        <span>📜 שים קוד ישיר (HTML)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- URL Input Deck -->
+            <form id="urlForm" onsubmit="handleUrlSubmit(event)" class="max-w-2xl mx-auto space-y-4">
+                <div class="relative flex items-center group">
+                    <div class="absolute right-4 text-amber-500 group-focus-within:text-amber-400 transition text-lg">
+                        🎳
+                    </div>
+                    <input 
+                        type="url" 
+                        id="targetUrlInput" 
+                        placeholder="https://example.com/hotels/" 
+                        required
+                        class="w-full pl-40 pr-12 py-4 rounded-2xl bg-black/75 border border-amber-500/30 text-amber-100 placeholder-amber-200/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-400 text-left font-mono text-sm transition shadow-inner"
+                    />
+                    <button 
+                        type="submit" 
+                        id="submitUrlBtn"
+                        class="absolute left-2.5 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-600 to-rose-600 hover:opacity-95 text-black font-extrabold text-xs shadow-lg shadow-amber-900/50 flex items-center gap-2 transition tracking-wider"
+                    >
+                        <span>זרוק כדור!</span>
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Subpath Scope Radar Deck (Appears when subpath detected like /hotels/) -->
+                <div id="subpathScopeBanner" class="hidden p-4 rounded-2xl bg-gradient-to-r from-amber-950/60 via-[#26170d] to-rose-950/40 border border-amber-500/40 text-xs text-amber-100 space-y-2.5 shadow-xl">
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center gap-2.5 cursor-pointer font-bold select-none text-amber-200">
+                            <input type="checkbox" id="limitToSubpathBox" checked class="custom-checkbox">
+                            <span class="flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                                <span>🎯 מסלול ממוקד (אל תעבור את הקו): סרוק רק מה שתחת <span id="detectedPathLabel" class="font-mono text-amber-300 bg-black/60 px-2 py-0.5 rounded border border-amber-500/40">/hotels/</span> ומטה</span>
+                            </span>
+                        </label>
+                        <span class="text-[11px] text-amber-400 font-mono font-bold">LANE SCOPE ACTIVE</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-amber-300/70 text-[11px] pt-2 border-t border-amber-500/20">
+                        <label class="flex items-center gap-2 cursor-pointer text-amber-200 hover:text-white">
+                            <input type="checkbox" id="excludeHeaderFooterBox" checked class="custom-checkbox">
+                            <span>התעלם מתפריט ראשי ופוטר גלובליים (Header & Footer של אתר האב)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Scan Checkbox Bar -->
+                <div class="flex items-center justify-between text-xs text-amber-200/70 px-2">
+                    <label class="flex items-center gap-2 cursor-pointer select-none text-amber-200 hover:text-white">
+                        <input type="checkbox" id="checkLiveStatusBox" checked class="custom-checkbox">
+                        <span>אימות שרת חי בזמן אמת (בדיקת 404/200 לכל קישור ותמונה)</span>
+                    </label>
+                    <span class="text-[11px] text-amber-500/80 font-mono font-bold">BOWLING LANE HTTP ENGINE</span>
+                </div>
+            </form>
+
+            <!-- Raw HTML Code Form -->
+            <form id="htmlForm" onsubmit="handleHtmlSubmit(event)" class="max-w-3xl mx-auto space-y-4 hidden">
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold text-amber-200">הדבק קוד HTML ישיר לבדיקה מקומית (Offline/Localhost/View Source):</label>
+                    <textarea 
+                        id="rawHtmlInput" 
+                        rows="8"
+                        placeholder="<!DOCTYPE html><html><head>...</head><body>...</body></html>" 
+                        required
+                        class="w-full p-4 rounded-2xl bg-black/80 border border-amber-500/30 text-amber-100 font-mono text-xs placeholder-amber-400/30 focus:outline-none focus:ring-2 focus:ring-amber-500 transition text-left"
+                    ></textarea>
+                </div>
+                <div class="flex justify-end">
+                    <button 
+                        type="submit" 
+                        class="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs shadow-lg shadow-amber-900/40 flex items-center gap-2 transition"
+                    >
+                        <span>נתח קוד HTML</span>
+                        <i data-lucide="play" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Diagnostic Live Radar State (The Dude rolling a ball down the lane) -->
+            <div id="loadingState" class="hidden py-14 text-center space-y-5 relative">
+                <div class="radar-beam"></div>
+                <div class="inline-block relative">
+                    <div class="w-20 h-20 border-3 border-amber-500/30 border-t-amber-400 border-r-emerald-400 rounded-full animate-spin"></div>
+                    <span class="text-3xl absolute inset-0 m-auto flex items-center justify-center animate-bounce">🎳</span>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="text-base font-black text-amber-300 tracking-wide font-lebowski">THE DUDE IS ROLLING DOWN THE LANE...</h3>
+                    <p id="loadingStatusText" class="text-xs text-amber-200/80">מאמת קישורים, בודק כרזות אירועים, מוודא שהשטיח לא הוכתם ובודק עמידה בחוקי הליגה (ת"י 5568)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audit Cockpit Results -->
+        <div id="resultsContainer" class="hidden space-y-8">
+
+            <!-- Executive Telemetry Header (Dual Pillars: Accessibility vs Technical) -->
+            <section class="cockpit-panel rounded-3xl p-6 sm:p-8 space-y-6 border border-amber-500/30">
+                
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-6 pb-6 border-b border-amber-500/20">
+                    
+                    <!-- Left: Score Pillars -->
+                    <div class="flex flex-wrap items-center gap-6">
+                        
+                        <!-- 1. Overall Verdict Ring -->
+                        <div class="flex items-center gap-4">
+                            <div id="scoreGauge" class="neon-meter shadow-2xl" style="background: conic-gradient(#10b981 0% 85%, #1e130c 85% 100%);">
+                                <span id="scoreValue" class="neon-meter-val text-amber-300">85</span>
+                            </div>
+                            <div class="space-y-1 text-right">
+                                <span class="text-[10px] font-mono font-bold tracking-widest text-amber-400 uppercase">ציון הליגה המשוקלל</span>
+                                <h3 id="verdictTitle" class="text-xl sm:text-2xl font-black text-amber-100 font-lebowski">מוכנות למסירה</h3>
+                                <p id="verdictDesc" class="text-xs text-amber-200/70 max-w-sm leading-relaxed">
+                                    נמצאו בעיות הדורשות טיפול לפני מסירה ללקוח.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 2. Dedicated Accessibility Pillar (The League Rules) -->
+                        <div class="cockpit-card rounded-2xl p-4 border border-emerald-500/40 bg-emerald-950/20 flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-xl bg-emerald-500/15 border border-emerald-500/50 flex items-center justify-center shadow-lg shadow-emerald-900/30">
+                                <span id="scoreA11yVal" class="text-2xl font-black font-lebowski text-emerald-400">0</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="flex items-center gap-1.5 text-xs font-bold text-emerald-300">
+                                    <span>📜</span>
+                                    <span>חוקי הליגה (נגישות ת"י 5568)</span>
+                                </div>
+                                <span id="a11yStatusPill" class="text-[11px] text-slate-300 block font-semibold">עמידה בתקן WCAG AA</span>
+                                <span class="text-[10px] text-emerald-400/90 font-mono font-bold">LEAGUE RULES // ת"י 5568</span>
+                            </div>
+                        </div>
+
+                        <!-- 3. Dedicated Technical & QA Pillar (The Lane & The Pins) -->
+                        <div class="cockpit-card rounded-2xl p-4 border border-amber-500/40 bg-amber-950/20 flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-xl bg-amber-500/15 border border-amber-500/50 flex items-center justify-center shadow-lg shadow-amber-900/30">
+                                <span id="scoreTechVal" class="text-2xl font-black font-lebowski text-amber-400">0</span>
+                            </div>
+                            <div class="text-right">
+                                <div class="flex items-center gap-1.5 text-xs font-bold text-amber-300">
+                                    <span>🎳</span>
+                                    <span>המסלול, הפינים ו-SEO</span>
+                                </div>
+                                <span class="text-[11px] text-slate-300 block font-semibold">קישורים, תמונות, מטא ואבטחה</span>
+                                <span class="text-[10px] text-amber-400/90 font-mono font-bold">TECHNICAL INTEGRITY</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right: Metadata Telemetry Box -->
+                    <div class="flex flex-wrap lg:flex-col gap-2.5 text-xs text-amber-100 bg-black/75 p-4 rounded-2xl border border-amber-500/25 font-mono">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="globe-2" class="w-3.5 h-3.5 text-amber-400"></i>
+                            <span class="text-amber-400/70">TARGET:</span>
+                            <span id="metaTargetUrl" class="text-white max-w-[200px] truncate" dir="ltr">https://...</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-emerald-400"></i>
+                            <span class="text-amber-400/70">TTFB:</span>
+                            <span id="metaLoadTime" class="text-white">0 ms</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="file-code" class="w-3.5 h-3.5 text-amber-400"></i>
+                            <span class="text-amber-400/70">HTML SIZE:</span>
+                            <span id="metaPageSize" class="text-white">0 KB</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 text-rose-400"></i>
+                            <span class="text-amber-400/70">TIMESTAMP:</span>
+                            <span id="metaScanTime" class="text-white">00:00:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5-Category Breakdown Grid (The Lebowski Bowling League) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+                    
+                    <!-- 1. Links -->
+                    <div class="cockpit-card rounded-2xl p-4 space-y-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                                <span>🎳</span>
+                                <span>מסלול הקישורים</span>
+                            </span>
+                            <span id="catScoreLinks" class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">100</span>
+                        </div>
+                        <div class="flex items-center justify-between text-xs pt-1 font-mono">
+                            <span class="text-slate-300">שבורים: <strong id="statBrokenLinks" class="text-rose-400 font-bold">0</strong></span>
+                            <span class="text-amber-200/60 font-normal">סה"כ: <span id="statTotalLinks" class="text-slate-300">0</span></span>
+                        </div>
+                        <p id="linksSummaryText" class="text-[11px] text-amber-200/70 truncate">נבדק בהצלחה</p>
+                    </div>
+
+                    <!-- 2. Images -->
+                    <div class="cockpit-card rounded-2xl p-4 space-y-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                                <span>🧶</span>
+                                <span>השטיח (תמונות)</span>
+                            </span>
+                            <span id="catScoreImages" class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">100</span>
+                        </div>
+                        <div class="flex items-center justify-between text-xs pt-1 font-mono">
+                            <span class="text-slate-300">ללא Alt: <strong id="statMissingAlt" class="text-amber-400 font-bold">0</strong></span>
+                            <span class="text-amber-200/60 font-normal">סה"כ: <span id="statTotalImages" class="text-slate-300">0</span></span>
+                        </div>
+                        <p id="imagesSummaryText" class="text-[11px] text-amber-200/70 truncate">Favicon תקין</p>
+                    </div>
+
+                    <!-- 3. Accessibility -->
+                    <div class="cockpit-card rounded-2xl p-4 space-y-1.5 border-emerald-500/40">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                                <span>📜</span>
+                                <span>חוקי הליגה (a11y)</span>
+                            </span>
+                            <span id="catScoreA11y" class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">100</span>
+                        </div>
+                        <div class="flex items-center justify-between text-xs pt-1">
+                            <span id="statH1Status" class="text-emerald-400 font-bold">קיים H1</span>
+                            <span id="statA11yPassedRatio" class="text-emerald-400 font-mono text-[11px] bg-emerald-500/20 px-2 py-0.5 rounded border border-emerald-500/40 font-bold">תקין</span>
+                        </div>
+                        <p id="a11ySummaryText" class="text-[11px] text-amber-200/70 truncate">שפת מסמך והיררכיה</p>
+                    </div>
+
+                    <!-- 4. SEO -->
+                    <div class="cockpit-card rounded-2xl p-4 space-y-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                                <span>🔍</span>
+                                <span>החקירה הפרטית (SEO)</span>
+                            </span>
+                            <span id="catScoreSeo" class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">100</span>
+                        </div>
+                        <div class="text-lg font-bold text-white flex items-baseline gap-1.5">
+                            <span id="statRobotsStatus" class="text-emerald-400 text-sm">אינדוקס תקין</span>
+                        </div>
+                        <p id="seoSummaryText" class="text-[11px] text-amber-200/70 truncate">Title & Description</p>
+                    </div>
+
+                    <!-- 5. Security & Hygiene -->
+                    <div class="cockpit-card rounded-2xl p-4 space-y-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                                <span>🛡️</span>
+                                <span>המאבטח של וולטר</span>
+                            </span>
+                            <span id="catScoreSecurity" class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">100</span>
+                        </div>
+                        <div class="text-lg font-bold text-white flex items-baseline gap-1.5">
+                            <span id="statHttpsStatus" class="text-emerald-400 text-sm">HTTPS מאובטח</span>
+                        </div>
+                        <p id="securitySummaryText" class="text-[11px] text-amber-200/70 truncate">שאריות פיתוח ומלל</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Navigation Deck (Tabs & Export Suite) -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-amber-500/20 pb-4 no-print">
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="switchViewTab('todo')" id="viewTabTodo" class="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-amber-600 to-amber-700 text-white flex items-center gap-2 shadow-lg shadow-amber-900/40 transition">
+                        <i data-lucide="check-square" class="w-4 h-4"></i>
+                        <span>ספר המשימות (TODO)</span>
+                        <span id="badgeTodoCount" class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-black/40">0</span>
+                    </button>
+                    <button onclick="switchViewTab('a11yCompliance')" id="viewTabA11yCompliance" class="px-4 py-2 rounded-xl text-xs font-bold text-amber-200/70 hover:text-white flex items-center gap-2 transition">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+                        <span>מה שעומד בחוקי הליגה (נגישות)</span>
+                        <span id="badgeA11yCompliance" class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold">-</span>
+                    </button>
+                    <button onclick="switchViewTab('links')" id="viewTabLinks" class="px-4 py-2 rounded-xl text-xs font-bold text-amber-200/70 hover:text-white flex items-center gap-2 transition">
+                        <i data-lucide="link" class="w-4 h-4"></i>
+                        <span>פירוט המסלול (קישורים)</span>
+                    </button>
+                    <button onclick="switchViewTab('images')" id="viewTabImages" class="px-4 py-2 rounded-xl text-xs font-bold text-amber-200/70 hover:text-white flex items-center gap-2 transition">
+                        <i data-lucide="image" class="w-4 h-4"></i>
+                        <span>פירוט השטיח (תמונות)</span>
+                    </button>
+                    <button onclick="switchViewTab('preview')" id="viewTabPreview" class="px-4 py-2 rounded-xl text-xs font-bold text-amber-200/70 hover:text-white flex items-center gap-2 transition">
+                        <i data-lucide="eye" class="w-4 h-4"></i>
+                        <span>תצוגת הלוח (SEO ושיתוף)</span>
+                    </button>
+                </div>
+
+                <!-- One-Click Export Suite -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="copyA11yFullReport()" class="text-xs px-3.5 py-2 rounded-xl bg-emerald-950/70 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-900/40 flex items-center gap-1.5 transition">
+                        <span>📜</span>
+                        <span>העתק דוח נגישות מלא (תקינים + ליקויים)</span>
+                    </button>
+                    <button onclick="copyTechReport()" class="text-xs px-3.5 py-2 rounded-xl bg-[#2a1a10] text-amber-300 border border-amber-500/30 hover:bg-[#382316] flex items-center gap-1.5 transition">
+                        <span>🎳</span>
+                        <span>העתק דוח טכני</span>
+                    </button>
+                    <button onclick="downloadMarkdown()" class="text-xs px-3.5 py-2 rounded-xl bg-black/60 text-amber-200 border border-amber-500/20 hover:bg-black/90 flex items-center gap-1.5 transition">
+                        <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                        <span>הורד ספר חוקים (TODO.md)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- VIEW 1: TODO Matrix Panel -->
+            <section id="panelTodo" class="space-y-4">
+                
+                <!-- A11y Quick Status & Compliance Link Banner -->
+                <div id="a11yPassedBanner" class="p-4 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-[#1f150d] to-teal-950/30 border border-emerald-500/35 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-emerald-200 shadow-lg">
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-xl">📜</span>
+                        <span><strong class="text-white">בדיקת עמידה בחוקי הליגה (ת"י 5568 / WCAG AA):</strong> <span id="a11yPassedBannerText">נבדקו סעיפי תקן ונמצאו תקינים.</span></span>
+                    </div>
+                    <button onclick="switchViewTab('a11yCompliance')" class="self-start sm:self-auto px-4 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 text-xs font-bold border border-emerald-500/40 transition flex items-center gap-1.5 shadow-sm">
+                        <span>צפה במה שעומד בחוקי הליגה</span>
+                        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+
+                <!-- Discipline Switcher (Accessibility vs Technical QA) -->
+                <div class="cockpit-panel rounded-3xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 border border-amber-500/30">
+                    
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="text-xs font-bold text-amber-300 ml-1">סינון תחום:</span>
+                        <button onclick="setDisciplineFilter('a11y')" id="discBtnA11y" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-[#2a1a10] text-amber-200 hover:text-white border border-transparent">
+                            <span>📜</span>
+                            <span>עבירות נגישות לתיקון</span>
+                            <span id="badgeA11yTasks" class="font-mono text-[11px] px-2 py-0.5 rounded-full bg-black/40">0</span>
+                        </button>
+                        <button onclick="setDisciplineFilter('a11y_passed')" id="discBtnA11yPassed" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-emerald-950/40 text-emerald-300 hover:bg-emerald-900/50 border border-emerald-500/35">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+                            <span>✅ מה שעומד בחוקי הליגה</span>
+                            <span id="badgeA11yPassedBtn" class="font-mono text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold">0</span>
+                        </button>
+                        <button onclick="setDisciplineFilter('tech')" id="discBtnTech" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-[#2a1a10] text-amber-200 hover:text-white border border-transparent">
+                            <span>🎳</span>
+                            <span>פינים עומדים (טכני ו-SEO)</span>
+                            <span id="badgeTechTasks" class="font-mono text-[11px] px-2 py-0.5 rounded-full bg-black/40">0</span>
+                        </button>
+                        <button onclick="setDisciplineFilter('all')" id="discBtnAll" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2 bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-md shadow-amber-900/40">
+                            <i data-lucide="layers" class="w-4 h-4"></i>
+                            <span>הכל ביחד</span>
+                            <span id="badgeAllTasks" class="font-mono text-[11px] px-2 py-0.5 rounded-full bg-black/40">0</span>
+                        </button>
+                    </div>
+
+                    <!-- Progress Indicator -->
+                    <div class="flex items-center gap-3">
+                        <div class="w-36 bg-black/60 h-2.5 rounded-full overflow-hidden border border-amber-500/30">
+                            <div id="todoProgressBar" class="bg-gradient-to-r from-emerald-500 to-amber-500 h-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                        <span id="todoProgressText" class="text-xs font-mono text-amber-300/80">0 / 0 הושלמו (0%)</span>
+                    </div>
+
+                </div>
+
+                <!-- Priority Filters Bar -->
+                <div class="flex flex-wrap items-center gap-1.5 px-1">
+                    <span class="text-xs font-bold text-amber-400/80 ml-2">חומרה:</span>
+                    <button onclick="filterTodos('all')" class="todo-filter-btn px-3.5 py-1 rounded-xl text-xs font-bold bg-amber-500/20 text-amber-200 border border-amber-500/30" data-filter="all">הכל</button>
+                    <button onclick="filterTodos('critical')" class="todo-filter-btn px-3.5 py-1 rounded-xl text-xs font-bold bg-rose-950/40 text-rose-300 hover:bg-rose-950/70 border border-rose-500/30" data-filter="critical">🛑 עבירת ליגה קריטית (חוסם מסירה)</button>
+                    <button onclick="filterTodos('high')" class="todo-filter-btn px-3.5 py-1 rounded-xl text-xs font-bold bg-amber-950/40 text-amber-300 hover:bg-amber-950/70 border border-amber-500/30" data-filter="high">🟠 חשוב מאוד</button>
+                    <button onclick="filterTodos('medium')" class="todo-filter-btn px-3.5 py-1 rounded-xl text-xs font-bold bg-yellow-950/40 text-yellow-300 hover:bg-yellow-950/70 border border-yellow-500/30" data-filter="medium">🟡 מומלץ לשיפור</button>
+                    <button onclick="filterTodos('low')" class="todo-filter-btn px-3.5 py-1 rounded-xl text-xs font-bold bg-[#2a1a10] text-amber-300/70 hover:bg-[#382316]" data-filter="low">🟢 ליטוש קל</button>
+                </div>
+
+                <!-- Section: Always-Visible Passed Accessibility Checks (ת"י 5568) -->
+                <div id="todoPassedA11ySection" class="cockpit-panel rounded-3xl p-5 sm:p-6 space-y-4 border border-emerald-500/35 bg-emerald-950/15">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-emerald-500/25 pb-3.5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shrink-0 text-lg">
+                                🎳
+                            </div>
+                            <div>
+                                <h4 class="text-sm sm:text-base font-bold text-white flex items-center gap-2 font-lebowski">
+                                    <span>סעיפי נגישות שעומדים בחוקי הליגה (ת"י 5568 / The Dude Abides)</span>
+                                </h4>
+                                <p class="text-xs text-amber-200/70">קריטריונים אלו נבדקו בקוד האתר, עברו בהצלחה ומאושרים להצהרת נגישות רשמית</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 self-start sm:self-auto">
+                            <span id="badgeTodoPassedCount" class="text-xs font-mono px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/40">
+                                0 סעיפים תקינים
+                            </span>
+                            <button onclick="togglePassedA11yCollapse()" id="btnTogglePassedA11y" class="text-xs px-3.5 py-1.5 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/60 text-emerald-300 border border-emerald-500/40 transition flex items-center gap-1 font-bold">
+                                <span id="labelTogglePassedA11y">הסתר סעיפים</span>
+                                <i data-lucide="chevron-up" id="iconTogglePassedA11y" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="todoPassedA11yList" class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                        <!-- Populated with all passed checks by app.js -->
+                    </div>
+                </div>
+
+                <!-- Task Cards Stream -->
+                <div id="todoListItems" class="space-y-3.5">
+                    <!-- Dynamic rendering by app.js -->
+                </div>
+            </section>
+
+            <!-- VIEW: Accessibility Compliance & Passed Checks Report -->
+            <section id="panelA11yCompliance" class="space-y-6 hidden">
+                <!-- Header Card -->
+                <div class="cockpit-panel rounded-3xl p-6 sm:p-8 space-y-5 border border-emerald-500/35">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-amber-500/20 pb-5">
+                        <div class="space-y-1.5">
+                            <div class="inline-flex items-center gap-2 text-xs font-mono text-emerald-300 px-3 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/40">
+                                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                                <span>תקן ישראלי ת"י 5568 / WCAG 2.1 AA</span>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-black text-white font-lebowski">
+                                דוח עמידה בנגישות - ספר החוקים של הליגה
+                            </h3>
+                            <p class="text-xs sm:text-sm text-amber-200/70">
+                                "Am I the only one around here who gives a damn about the rules?!" פירוט מלא של כל סעיפי התקן שנבדקו בקוד האתר.
+                            </p>
+                        </div>
+
+                        <!-- Compliance Summary Pill Badges -->
+                        <div class="flex items-center gap-3">
+                            <div class="px-4 py-3 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 text-right">
+                                <span class="text-[10px] text-emerald-400 font-mono block uppercase font-bold">סעיפים שעברו</span>
+                                <div class="text-xl font-black text-emerald-300 font-lebowski flex items-center gap-1">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                                    <span id="statCompliancePassed">0</span>
+                                </div>
+                            </div>
+                            <div class="px-4 py-3 rounded-2xl bg-rose-950/40 border border-rose-500/40 text-right">
+                                <span class="text-[10px] text-rose-400 font-mono block uppercase font-bold">עבירות ליגה לתיקון</span>
+                                <div class="text-xl font-black text-rose-300 font-lebowski flex items-center gap-1">
+                                    <i data-lucide="alert-circle" class="w-4 h-4 text-rose-400"></i>
+                                    <span id="statComplianceFailed">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filter Sub-bar for Compliance List -->
+                    <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-amber-300">הצג:</span>
+                            <button onclick="filterComplianceView('all')" id="compFilterAll" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-amber-500/20 text-white">
+                                הכל (<span id="countCompAll">0</span>)
+                            </button>
+                            <button onclick="filterComplianceView('passed')" id="compFilterPassed" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-950/40 text-emerald-300 hover:bg-emerald-900/50 border border-emerald-500/35">
+                                ✅ תקין בלבד (<span id="countCompPassed">0</span>)
+                            </button>
+                            <button onclick="filterComplianceView('failed')" id="compFilterFailed" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-rose-950/40 text-rose-300 hover:bg-rose-900/50 border border-rose-500/35">
+                                ⚠️ ליקויים בלבד (<span id="countCompFailed">0</span>)
+                            </button>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <button onclick="copyA11yComplianceReport()" class="text-xs px-3.5 py-2 rounded-xl bg-[#2a1a10] hover:bg-[#382316] text-amber-200 border border-amber-500/30 flex items-center gap-1.5 transition">
+                                <i data-lucide="copy" class="w-3.5 h-3.5 text-amber-400"></i>
+                                <span>העתק סעיפים תקינים (להצהרת נגישות)</span>
+                            </button>
+                            <button onclick="copyA11yFullReport()" class="text-xs px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-90 text-white font-bold flex items-center gap-1.5 shadow-md shadow-emerald-900/40 transition">
+                                <i data-lucide="clipboard-list" class="w-3.5 h-3.5"></i>
+                                <span>העתק דוח נגישות מלא</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compliance Checklist Cards -->
+                <div id="complianceChecklistItems" class="space-y-3.5">
+                    <!-- Rendered by JS -->
+                </div>
+            </section>
+
+            <!-- VIEW 2: Links Table -->
+            <section id="panelLinks" class="cockpit-panel rounded-3xl p-6 space-y-4 hidden border border-amber-500/30">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <h3 class="text-base font-bold text-amber-100 flex items-center gap-2 font-lebowski">
+                        <span>🎳</span>
+                        <span>רשימת כל הקישורים שנמצאו במסלול</span>
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="filterLinksTable('all')" class="text-xs px-3 py-1 rounded-xl bg-[#2a1a10] text-amber-200 hover:bg-[#382316]">הכל</button>
+                        <button onclick="filterLinksTable('in_scope')" class="text-xs px-3 py-1 rounded-xl bg-amber-500/20 text-amber-300 hover:bg-amber-500/30">בתוך הנתיב בלבד</button>
+                        <button onclick="filterLinksTable('broken')" class="text-xs px-3 py-1 rounded-xl bg-rose-500/20 text-rose-300 hover:bg-rose-500/30">שבורים בלבד</button>
+                        <button onclick="filterLinksTable('out_of_scope')" class="text-xs px-3 py-1 rounded-xl bg-black/60 text-slate-400 hover:bg-black/80">הוחרגו (אתר אב)</button>
+                    </div>
+                </div>
+                <div class="overflow-x-auto rounded-2xl border border-amber-500/20">
+                    <table class="w-full text-right text-xs text-amber-100/90">
+                        <thead class="bg-black/80 text-amber-300 border-b border-amber-500/20 font-mono">
+                            <tr>
+                                <th class="p-3.5">#</th>
+                                <th class="p-3.5">טקסט הקישור</th>
+                                <th class="p-3.5">כתובת יעד (URL)</th>
+                                <th class="p-3.5">סוג</th>
+                                <th class="p-3.5">סטטוס</th>
+                                <th class="p-3.5">הערות ותקלות</th>
+                            </tr>
+                        </thead>
+                        <tbody id="linksTableBody" class="divide-y divide-amber-500/10 font-mono">
+                            <!-- Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- VIEW 3: Images Table (The Rug) -->
+            <section id="panelImages" class="cockpit-panel rounded-3xl p-6 space-y-4 hidden border border-amber-500/30">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-base font-bold text-amber-100 flex items-center gap-2 font-lebowski">
+                        <span>🧶</span>
+                        <span>גלריית השטיח - רשימת כל התמונות והכרזות שנמצאו בדף</span>
+                    </h3>
+                </div>
+                <div class="overflow-x-auto rounded-2xl border border-amber-500/20">
+                    <table class="w-full text-right text-xs text-amber-100/90">
+                        <thead class="bg-black/80 text-amber-300 border-b border-amber-500/20 font-mono">
+                            <tr>
+                                <th class="p-3.5">#</th>
+                                <th class="p-3.5">נתיב מקור (src) / סוג</th>
+                                <th class="p-3.5">תגית Alt</th>
+                                <th class="p-3.5">ממדים</th>
+                                <th class="p-3.5">סטטוס וגודל</th>
+                                <th class="p-3.5">בדיקת נגישות ותקינות</th>
+                            </tr>
+                        </thead>
+                        <tbody id="imagesTableBody" class="divide-y divide-amber-500/10 font-mono">
+                            <!-- Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- VIEW 4: SEO Previews -->
+            <section id="panelPreview" class="space-y-6 hidden">
+                <!-- Google SERP Card Preview -->
+                <div class="cockpit-panel rounded-3xl p-6 sm:p-8 space-y-3 border border-amber-500/30">
+                    <h4 class="text-xs font-mono font-bold text-amber-300 flex items-center gap-2">
+                        <span>🔍</span>
+                        <span>GOOGLE SEARCH SNIPPET (SERP PREVIEW)</span>
+                    </h4>
+                    <div class="bg-white p-5 rounded-2xl text-left font-sans max-w-2xl shadow-2xl border border-amber-200">
+                        <div class="flex items-center gap-2 text-xs text-slate-700 mb-1">
+                            <span id="previewSerpFavicon" class="w-4 h-4 rounded-full bg-slate-200 flex items-center justify-center text-[10px]">🌐</span>
+                            <span id="previewSerpDomain" class="text-slate-800 font-medium font-mono">example.com</span>
+                            <span class="text-slate-400">›</span>
+                            <span class="text-slate-500 font-mono">home</span>
+                        </div>
+                        <h3 id="previewSerpTitle" class="text-blue-700 hover:underline text-lg font-medium cursor-pointer leading-snug">
+                            דף הבית | שם העסק
+                        </h3>
+                        <p id="previewSerpDesc" class="text-slate-600 text-xs mt-1 leading-relaxed">
+                            תיאור הדף כפי שיופיע לגולשים בתוצאות החיפוש של גוגל...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- WhatsApp / Social Share Card Preview -->
+                <div class="cockpit-panel rounded-3xl p-6 sm:p-8 space-y-3 border border-amber-500/30">
+                    <h4 class="text-xs font-mono font-bold text-amber-300 flex items-center gap-2">
+                        <span>📱</span>
+                        <span>WHATSAPP / SOCIAL SHARE CARD (OPEN GRAPH)</span>
+                    </h4>
+                    <div class="bg-black/90 border border-amber-500/30 rounded-2xl overflow-hidden max-w-md shadow-2xl text-left">
+                        <div id="previewOgImgBox" class="h-44 bg-[#1e130c] flex items-center justify-center text-amber-400/50 text-xs font-mono overflow-hidden">
+                            <span id="previewOgImgPlaceholder">חסרה תמונת og:image</span>
+                            <img id="previewOgImg" class="w-full h-full object-cover hidden" src="" alt="og preview">
+                        </div>
+                        <div class="p-4 space-y-1">
+                            <span id="previewOgDomain" class="text-[10px] text-amber-400 uppercase tracking-wider font-mono block font-bold">EXAMPLE.COM</span>
+                            <h5 id="previewOgTitle" class="text-sm font-bold text-white truncate">כותרת השיתוף</h5>
+                            <p id="previewOgDesc" class="text-xs text-slate-300 line-clamp-2">תיאור השיתוף של הדף ברשתות החברתיות ובוואטסאפ...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Tactile Toast Notification - Styled for The Dude -->
+    <div id="toastNotification" class="px-5 py-3 rounded-2xl bg-[#23170f] border border-amber-500 text-amber-200 text-xs font-bold shadow-2xl flex items-center gap-2.5">
+        <span class="text-lg">🎳</span>
+        <span id="toastMessage">The Dude abides: הועתק ללוח בהצלחה!</span>
+    </div>
+
+    <!-- The Big Auditski Footer -->
+    <footer class="border-t border-amber-900/40 py-8 text-center text-xs text-amber-300/60 no-print font-mono bg-[#140e0a]/80 space-y-1.5">
+        <p class="font-bold text-amber-400">THE BIG AUDITSKI &bull; "THE DUDE ABIDES" &bull; PROFESSIONAL CLIENT DELIVERY AUDITOR</p>
+        <p class="text-[11px] text-amber-500/70">"Sometimes you eat the bar, and sometimes, well, the bar eats you." &bull; ת"י 5568 / WCAG 2.1 AA</p>
+    </footer>
+
+    <!-- App Scripts -->
+    <script src="/static/app.js?v=3.0"></script>
+</body>
+</html>

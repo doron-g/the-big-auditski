@@ -1,0 +1,277 @@
+/* ==========================================================================
+   THE BIG AUDITSKI - THE DUDE'S LAUNCHREADY COCKPIT
+   Inspired by The Big Lebowski (1998)
+   "That rug really tied the room together, man."
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,800;0,900;1,400;1,700&family=JetBrains+Mono:wght@400;500;700;800&display=swap');
+
+:root {
+    /* The Big Lebowski Palette */
+    --dude-dark: #120e0b;
+    --dude-wood: #23170f;
+    --dude-wood-light: #382416;
+    --dude-amber: #f59e0b;
+    --dude-gold: #fbbf24;
+    --dude-cream: #fef3c7;
+    --dude-cardigan: #e8dfcf;
+    --dude-maroon: #7f1d1d;
+    --dude-bowling-red: #ef4444;
+    --dude-neon-teal: #14b8a6;
+    --dude-neon-green: #10b981;
+    --dude-rug-border: #92400e;
+    
+    /* Bowling Alley Lighting */
+    --lane-glow: rgba(245, 158, 11, 0.25);
+    --strike-glow: rgba(16, 185, 129, 0.3);
+    --border-rug: rgba(217, 119, 6, 0.35);
+}
+
+body {
+    font-family: 'Rubik', -apple-system, BlinkMacSystemFont, sans-serif;
+    direction: rtl;
+    background-color: var(--dude-dark);
+    color: #f5f0eb;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(180, 83, 9, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 90% 15%, rgba(127, 29, 29, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 50% 85%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
+        linear-gradient(to right, rgba(245, 158, 11, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245, 158, 11, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+}
+
+/* Groovy Headings */
+h1, h2, h3, .font-lebowski {
+    font-family: 'Righteous', 'Rubik', sans-serif;
+    letter-spacing: 0.03em;
+}
+
+code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+    direction: ltr;
+    text-align: left;
+}
+
+/* The Iconic Persian Rug Ribbon & Borders */
+.persian-rug-border {
+    position: relative;
+    border: 2px solid #b45309;
+    box-shadow: 0 0 25px rgba(180, 83, 9, 0.25), inset 0 0 15px rgba(127, 29, 29, 0.3);
+}
+
+.persian-rug-border::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+        90deg,
+        #b45309 0px, #b45309 12px,
+        #f59e0b 12px, #f59e0b 24px,
+        #7f1d1d 24px, #7f1d1d 36px,
+        #0d9488 36px, #0d9488 48px,
+        #fef3c7 48px, #fef3c7 60px
+    );
+    z-index: 10;
+}
+
+.rug-fringe {
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(254, 243, 199, 0.4) 0px,
+        rgba(254, 243, 199, 0.4) 3px,
+        transparent 3px,
+        transparent 6px
+    );
+    height: 6px;
+    width: 100%;
+}
+
+/* Vintage Bowling Lane Wood Panels */
+.cockpit-panel {
+    background: linear-gradient(145deg, rgba(35, 23, 15, 0.94) 0%, rgba(20, 14, 10, 0.97) 100%);
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(254, 243, 199, 0.12);
+    backdrop-filter: blur(14px);
+    position: relative;
+}
+
+.cockpit-card {
+    background: linear-gradient(160deg, rgba(42, 28, 18, 0.75) 0%, rgba(26, 17, 11, 0.85) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.22);
+    box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(254, 243, 199, 0.08);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cockpit-card:hover {
+    border-color: rgba(251, 191, 36, 0.55);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+/* Retro Bowling Scoreboard Neon Ring */
+.neon-meter {
+    position: relative;
+    width: 124px;
+    height: 124px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.3);
+}
+
+.neon-meter::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #1a120c;
+    box-shadow: inset 0 3px 12px rgba(0, 0, 0, 0.9);
+}
+
+.neon-meter-val {
+    position: relative;
+    font-family: 'Righteous', 'JetBrains Mono', monospace;
+    font-weight: 900;
+    font-size: 2.1rem;
+    letter-spacing: -0.03em;
+    color: #fbbf24;
+    text-shadow: 0 0 12px rgba(251, 191, 36, 0.6);
+}
+
+/* Bowling Pin Stripes and Accent Tags */
+.pin-stripe {
+    background: repeating-linear-gradient(
+        45deg,
+        #ef4444,
+        #ef4444 8px,
+        #ffffff 8px,
+        #ffffff 16px
+    );
+}
+
+/* White Russian Creamy Badges */
+.badge-white-russian {
+    background: linear-gradient(135deg, rgba(254, 243, 199, 0.15) 0%, rgba(217, 119, 6, 0.15) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #fde68a;
+}
+
+/* Custom Bowling Checkbox */
+.custom-checkbox {
+    appearance: none;
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 0.375rem;
+    border: 1.5px solid rgba(245, 158, 11, 0.4);
+    background-color: rgba(26, 17, 11, 0.9);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.custom-checkbox:checked {
+    background-color: #10b981;
+    border-color: #10b981;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
+}
+
+.custom-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 2.5px;
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+}
+
+/* Bowling Lane Ball Roll Loading Animation */
+@keyframes laneBallRoll {
+    0% { transform: translateX(120%) scale(0.9); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateX(-120%) scale(1.1); opacity: 0; }
+}
+
+.radar-beam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #f59e0b, #ef4444, #10b981, transparent);
+    box-shadow: 0 0 20px #f59e0b;
+    animation: radarSweep 2.2s ease-in-out infinite;
+}
+
+@keyframes radarSweep {
+    0% { transform: translateY(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(220%); opacity: 0; }
+}
+
+/* Toast Notification in The Dude Style */
+#toastNotification {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    background: #23170f;
+    border: 1px solid #f59e0b;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+#toastNotification.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #140e0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #78350f;
+    border-radius: 4px;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b45309;
+}
+
+/* Print Optimization */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+    .no-print {
+        display: none !important;
+    }
+    .cockpit-panel, .cockpit-card {
+        background: transparent !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+        color: #000000 !important;
+    }
+}
